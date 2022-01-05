@@ -26,7 +26,6 @@ Plugin.create(:libnotify_gi) do
                end
       notify.set_timeout(UserConfig[:notify_expire_time].to_i * 1000)
       notify.set_hint('desktop-entry', Environment::NAME)
-      pp notify
       notify.show
     end.trap do |err|
       error err
