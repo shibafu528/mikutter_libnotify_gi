@@ -1,0 +1,11 @@
+---
+slug: :libnotify
+depends:
+  mikutter: 5.0.0
+  plugin:
+    # gobject-introspectionが必要、かつgtk3プラグインが入っている場合はgemバージョンが揃ってないといけないので、めんどいからgtk3依存にする
+    - gtk3
+version: '1.0'
+author: shibafu528
+name: libnotify-gi
+description: GObject Introspection経由でlibnotifyを使い、デスクトップ通知を表示するプラグインです。
