@@ -10,7 +10,7 @@ notify_loader.load('Notify')
 
 Notify.init(Environment::NAME)
 
-Plugin.create(:libnotify_gi) do
+Plugin.create(:libnotify) do
  on_popup_notify do |user, text, &stop|
     icon_path(user.icon).trap do |err|
       warn err
