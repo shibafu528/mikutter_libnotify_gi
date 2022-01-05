@@ -19,8 +19,9 @@ Plugin.create(:libnotify) do
       # TODO: アイコンを一時ファイルに書き込まず、Notification#set_image_from_pixbuf(Gdk::Pixbuf)を使えるかもしれない
       # https://valadoc.org/libnotify/Notify.Notification.set_image_from_pixbuf.html
       notify = if text.is_a? Diva::Model
-                 notify.set_category('system')
-                 Notify::Notification.new(user.title, text.description.to_s, icon_file_name)
+                 Notify::Notification.new(user.title, text.description.to_s, icon_file_name).tap do |n|
+                   n.set_category('system')
+                 end
                else
                  Notify::Notification.new(user.title, text.to_s, icon_file_name)
                end
